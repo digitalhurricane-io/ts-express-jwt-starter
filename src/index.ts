@@ -4,10 +4,21 @@ import cors from "cors";
 import helmet from "helmet";
 import v1Routes from "./v1/routes";
 import passport from "passport";
+import mongoose from "mongoose";
 import passportConfig from "./passportConfig";
 
 const app = express();
 const port = 3000;
+
+// Connect to MongoDB
+// const mongoUrl = process.env.MONGODB_URI;
+
+// mongoose.connect(mongoUrl, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }).then(
+//     () => { /** ready to use. The `mongoose.connect()` promise resolves to undefined. */ },
+// ).catch((err: any) => {
+//     console.log(`MongoDB connection error. Please make sure MongoDB is running. ${err}`);
+//     process.exit();
+// });
 
 passportConfig(passport);
 app.use(passport.initialize());
